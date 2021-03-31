@@ -39,7 +39,7 @@
     
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="커맨드 라인 도구 빠르게 시작하기" href="cli.html" />
+    <link rel="next" title="명령 줄 도구 빠르게 시작하기" href="cli.html" />
     <link rel="prev" title="API 키 설정" href="../installation/apikey.html" /> 
 </head>
 
@@ -100,12 +100,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#id1">관련 문서</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cli.html">커맨드 라인 도구 빠르게 시작하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">명령 줄 도구 빠르게 시작하기</a></li>
 </ul>
 <p class="caption"><span class="caption-text">고급 주제</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">모델 양자화</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">지원되는 연산자 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">Furiosa NPU 에서 가속되는 연산자</a></li>
 </ul>
 
             
@@ -182,13 +182,13 @@
 <li><p><a class="reference internal" href="../installation/runtime.html"><span class="doc">NPU Runtime 설치</span></a></p></li>
 <li><p>Python 3.7 또는 상위 버전 (필요시 <a class="reference internal" href="../installation/prerequisites.html#setuppython"><span class="std std-ref">Python SDK 실행 환경 구성</span></a> 참고)</p></li>
 </ul>
-<p>위 요구 사항이 준비된 경우 Python 환경이 준비된 경우 PyPi 를 통해 설치할 수 있다.</p>
+<p>위 요구 사항이 준비된 경우 PyPi를 통해 FuriosaAI NPU Python SDK 라이브러리를 설치할 수 있다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install --upgrade furiosa-sdk<span class="o">[</span>runtime<span class="o">]</span>~<span class="o">=</span><span class="m">0</span>.1.0
 </pre></div>
 </div>
 <div class="section" id="python">
 <h2>간단한 Python 코드 실행<a class="headerlink" href="#python" title="제목 주소">¶</a></h2>
-<p>설치가 완료되면 Python 코드를 실행하여 버전 정보를 출력하여 패키지가 잘 설치되었는지 확인해볼 수 있다.</p>
+<p>설치가 완료된 후 다음과 같이 Python 코드를 실행하여 버전 정보를 출력하면 패키지가 잘 설치되었는지 확인해볼 수 있다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="kn">from</span> <span class="nn">furiosa</span> <span class="kn">import</span> <span class="n">runtime</span>
 <span class="n">INFO</span><span class="p">:</span><span class="n">furiosa_sdk_runtime</span><span class="o">.</span><span class="n">_api</span><span class="o">.</span><span class="n">v1</span><span class="p">:</span><span class="n">successfully</span> <span class="n">loaded</span> <span class="n">dynamic</span> <span class="n">library</span> <span class="n">libnux</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span>
 
@@ -197,8 +197,8 @@
 </pre></div>
 </div>
 <p>모델을 로딩하여 <code class="docutils literal notranslate"><span class="pre">session</span></code> 객체를 생성하면 추론을 실행할 수 있다.
-모델을 처음 로딩하면 내부적으로 모델을 컴파일하고 최적화하는 과정을 수반한다.
-이 과정을 모델에 따라 수 초에서 수 십초 가량 걸리는데 모델을 최초 로딩할 때만 수행된다.</p>
+모델을 처음 로딩하면 내부적으로 모델을 컴파일하고 최적화하는 과정이 수행된다.
+이 과정은 모델을 최초 로딩할 때만 수행되고 모델에 따라 수 초에서 수십 초 가량이 소요된다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s1">&#39;./MNISTnet_uint8_quant_without_softmax.tflite&#39;</span><span class="p">)</span>
 <span class="go">num_slices: 16</span>
 <span class="go">num_slices: 16</span>
@@ -220,8 +220,8 @@
 <span class="go">✨  Finished in 1.4908016s</span>
 </pre></div>
 </div>
-<p>모델을 로딩하고 난 뒤에는 로딩된 모델에 정보를 출력해볼 수 있다.
-<code class="docutils literal notranslate"><span class="pre">Inputs</span></code>, <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> 에서는 입력/출력 텐서 리스트와 각 텐서의 스키마 정보를 출력한다.</p>
+<p>모델을 로딩하고 난 뒤에는 로딩된 모델 정보를 출력해 볼 수 있다.
+<code class="docutils literal notranslate"><span class="pre">Inputs</span></code>, <code class="docutils literal notranslate"><span class="pre">Outputs</span></code> 에서는 입력/출력 텐서 목록과 각 텐서에 대한 개괄적인 정보를 출력한다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sess</span><span class="o">.</span><span class="n">print_summary</span><span class="p">()</span>
 <span class="go">Inputs:</span>
 <span class="go">{0: TensorDesc: shape=(1, 28, 28, 1), dtype=uint8, format=NHWC, size=784, len=784}</span>
@@ -245,8 +245,8 @@
 <span class="go">{0: &lt;Tensor: shape=(1, 1, 1, 10), dtype=DataType.UINT8, numpy=[[[[255   0 239   0 183   0 209   0 255 255]]]]&gt;}</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">session.run(input)</span></code> 호출은 NPU를 이용하여 추론 실행하고 텐서 리스트를 반환한다.
-반환된 결과가 리스트 이므로 첫번째 tensor의 numpy.ndarray을 얻으려면 아래와 같이 실행한다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">session.run(input)</span></code> 호출은 NPU를 이용하여 추론을 실행하고 텐서 리스트를 반환한다.
+반환된 결과가 리스트이므로 첫번째 텐서의 numpy.ndarray을 얻으려면 아래와 같이 실행한다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 </pre></div>
@@ -269,7 +269,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="cli.html" class="btn btn-neutral float-right" title="커맨드 라인 도구 빠르게 시작하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cli.html" class="btn btn-neutral float-right" title="명령 줄 도구 빠르게 시작하기" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="../installation/apikey.html" class="btn btn-neutral float-left" title="API 키 설정" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

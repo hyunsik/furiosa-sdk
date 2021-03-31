@@ -93,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="python-sdk.html">FuriosaAI Python SDK 설치</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API 키 설정</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">인증 확인</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">명령줄 도구를 사용한 인증 확인</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">명령 줄 도구를 사용한 인증 확인</a></li>
 </ul>
 </li>
 </ul>
@@ -102,12 +102,12 @@
 <p class="caption"><span class="caption-text">빠른 시작</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK 빠르게 시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">커맨드 라인 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">명령 줄 도구 빠르게 시작하기</a></li>
 </ul>
 <p class="caption"><span class="caption-text">고급 주제</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">모델 양자화</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">지원되는 연산자 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">Furiosa NPU 에서 가속되는 연산자</a></li>
 </ul>
 
             
@@ -177,24 +177,24 @@
             
   <div class="section" id="api">
 <h1>API 키 설정<a class="headerlink" href="#api" title="제목 주소">¶</a></h1>
-<p>FuriosaAI NPU Runtime 및 FuriosaAI NPU Python SDK 는 FuriosaAI 에서 제공하는
-웹 서비스 기반 도구를 포함하며, 이를 사용하기 위해 웹서비스 API 키를 설정해야 한다.</p>
+<p>FuriosaAI NPU Runtime 및 FuriosaAI NPU Python SDK 는 FuriosaAI에서 제공하는
+웹 서비스 기반 도구를 포함하며, 이를 사용하기 위해서는 웹서비스 API 키를 설정해야 한다.</p>
 <div class="admonition note">
 <p class="admonition-title">주석</p>
 <p>만약 API 키가 없다면 <a class="reference external" href="mailto:contact&#37;&#52;&#48;furiosa&#46;ai">contact<span>&#64;</span>furiosa<span>&#46;</span>ai</a> 으로 메일을 보내
 FuriosaAI SDK 및 NPU 평가프로그램 과정을 통해 얻을 수 있다.</p>
 </div>
-<p>소유한 API 키를 <code class="docutils literal notranslate"><span class="pre">$HOME/.furiosa/credentials</span></code> 파일에 아래와 쓰고 저장한다.</p>
+<p>소유한 API 키를 <code class="docutils literal notranslate"><span class="pre">$HOME/.furiosa/credentials</span></code> 파일에 아래와 같이 쓰고 저장한다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">FURIOSA_ACCESS_KEY_ID</span><span class="o">=</span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 <span class="nv">FURIOSA_SECRET_ACCESS_KEY</span><span class="o">=</span>YYYYYYYYYYYYYYYYYYYYYYYYYYYYY
 </pre></div>
 </div>
 <div class="section" id="id1">
 <h2>인증 확인<a class="headerlink" href="#id1" title="제목 주소">¶</a></h2>
-<p>FuriosaAI SDK에 포함된 명령줄 도구 또는 Python SDK를 사용하면
+<p>FuriosaAI SDK에 포함된 명령 줄 도구 또는 Python SDK를 사용하면
 API 키가 올바르게 설정되었는지 확인할 수 있다.</p>
 <div class="section" id="id2">
-<h3>명령줄 도구를 사용한 인증 확인<a class="headerlink" href="#id2" title="제목 주소">¶</a></h3>
+<h3>명령 줄 도구를 사용한 인증 확인<a class="headerlink" href="#id2" title="제목 주소">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ furiosa toolchain list
 Available Toolchains:
 <span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="m">0</span>.1.0 <span class="o">(</span>rev: 952707e5f built_at: <span class="m">2020</span>-12-15 <span class="m">23</span>:38:22<span class="o">)</span>

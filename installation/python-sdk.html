@@ -101,12 +101,12 @@
 <p class="caption"><span class="caption-text">빠른 시작</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK 빠르게 시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">커맨드 라인 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">명령 줄 도구 빠르게 시작하기</a></li>
 </ul>
 <p class="caption"><span class="caption-text">고급 주제</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">모델 양자화</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">지원되는 연산자 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">Furiosa NPU 에서 가속되는 연산자</a></li>
 </ul>
 
             
@@ -176,8 +176,8 @@
             
   <div class="section" id="furiosaai-python-sdk">
 <h1>FuriosaAI Python SDK 설치<a class="headerlink" href="#furiosaai-python-sdk" title="제목 주소">¶</a></h1>
-<p>FuriosaAI NPU Python SDK 는 모델을 NPU 에서 가속시키기 위한 각종 인터페이스를 제공하며, Python 라이브러리 및
-명령줄 도구(command line tool)를 포함한다.</p>
+<p>FuriosaAI NPU Python SDK는 NPU 에서 모델을 가속시키기 위한 각종 인터페이스를 제공하며, Python 라이브러리 및
+명령 줄 도구(command line tool)를 포함한다.</p>
 <div class="section" id="id1">
 <h2>요구 사항<a class="headerlink" href="#id1" title="제목 주소">¶</a></h2>
 <ul>
@@ -194,7 +194,7 @@
 <div class="section" id="id2">
 <h2>설치<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
 <p>FuriosaAI Python SDK는 PyPi를 활용하여 설치할 수 있도록 PyPi 저장소에 준비되어 있다.
-Python 라이브러리 인터페이스 이외에도 명령줄 도구 및 다양한 기능을 사용할 수 있고, 다음의 예시대로 설치 가능하다.</p>
+Python 라이브러리 인터페이스 이외에도 명령 줄 도구 및 다양한 기능을 사용할 수 있고, 다음의 예시대로 설치 가능하다.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># FuriosaAI NPU Python SDK 설치, Python 인터페이스 사용 가능, e.g. `import furiosa`</span>
 pip install --upgrade furiosa-sdk~<span class="o">=</span><span class="m">0</span>.1.0
 <span class="c1"># 부가 도구 설치, 자세한 목록은 아래 참조</span>
@@ -205,7 +205,7 @@ pip install --upgrade furiosa-sdk<span class="o">[</span>full<span class="o">]</
 </div>
 <p>PIP 커맨드를 이용하여 다음 부가 패키지를 설치할 수 있다.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">cli</span></code>: 명령줄 도구 설치, 사용 방법은 <a class="reference internal" href="../quickstart/cli.html"><span class="doc">커맨드 라인 도구</span></a> 를 참고</p>
+<li><p><code class="docutils literal notranslate"><span class="pre">cli</span></code>: 명령 줄 도구 설치, 사용 방법은 <a class="reference internal" href="../quickstart/cli.html"><span class="doc">명령 줄 도구 빠르게 시작하기</span></a> 를 참고</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">furiosa</span><span class="o">-</span><span class="n">sdk</span><span class="p">[</span><span class="n">cli</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -234,7 +234,7 @@ pip install --upgrade furiosa-sdk<span class="o">[</span>full<span class="o">]</
 <div class="section" id="jupyter-notebook">
 <h2>Jupyter Notebook 사용 안내<a class="headerlink" href="#jupyter-notebook" title="제목 주소">¶</a></h2>
 <p>Jupyter Notebook을 사용하는 경우
-FuriosaAI Python SDK와 다양한 Python 에코시스템의 다양한
+FuriosaAI Python SDK와 다양한 Python 생태계의 다양한
 라이브러리를 편하게 사용할 수 있다.</p>
 <p>위 설명에 따라 Python SDK를 이미 설치했다면
 아래와 같이 pip를 이용해 Jupyter notebook을 간단히 설치해 사용할 수 있다.

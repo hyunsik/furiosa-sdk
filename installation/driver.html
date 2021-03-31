@@ -98,18 +98,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="runtime.html">NPU Runtime 설치</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">Python SDK 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-sdk.html">FuriosaAI Python SDK 설치</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apikey.html">API 키 설정</a></li>
 </ul>
 <p class="caption"><span class="caption-text">빠른 시작</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK 빠르게 시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">커맨드 라인 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">명령 줄 도구 빠르게 시작하기</a></li>
 </ul>
 <p class="caption"><span class="caption-text">고급 주제</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../advanced/quantization.html">모델 양자화</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">지원되는 연산자 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/supported_operators.html">Furiosa NPU 에서 가속되는 연산자</a></li>
 </ul>
 
             
@@ -210,8 +210,11 @@ $ ./check_fpga_device
 <div class="section" id="id3">
 <h3>요구 사항<a class="headerlink" href="#id3" title="제목 주소">¶</a></h3>
 <ul class="simple">
-<li><p>FuriosaAI에서 제공하는 평가용 AWS F1 FPGA 이미지 접근 권한이 필요 하다. AWS account ID를 Furiosa AI에게 공유하면 권한을 받을 수 있다.</p></li>
-<li><p>AWS F1 인스턴스가 필요하며 현재 f1.2xlarge 타입만 지원 하며, f1 인스턴스는 AWS의 일부 지역에서만 사용 가능하다. (예, <cite>US East (N. Virginia)</cite>)</p></li>
+<li><p>FuriosaAI에서 제공하는 평가용 AWS F1 FPGA 이미지 접근 권한
+* AWS account ID를 FuriosaAI에게 공유하면 권한을 받을 수 있다.</p></li>
+<li><p>AWS F1 인스턴스
+* 현재는 f1.2xlarge 타입만 지원한다.
+* f1 인스턴스는 AWS의 일부 지역에서만 사용 가능하다. (예. <cite>US East (N. Virginia)</cite>)</p></li>
 </ul>
 </div>
 <div class="section" id="furiosaai-aws-f1-fpga-aws-account-id">
@@ -221,7 +224,7 @@ $ ./check_fpga_device
 <img alt="../_images/aws_account_id.png" src="../_images/aws_account_id.png" />
 <div class="section" id="id4">
 <h4>설치<a class="headerlink" href="#id4" title="제목 주소">¶</a></h4>
-<p><code class="docutils literal notranslate"><span class="pre">f1.2xlarge</span></code> 인스턴스 생성후 인스턴스 내에서 아래 커맨드를 통해 커널 드라이버 및 펌웨어 설치 가능.</p>
+<p><code class="docutils literal notranslate"><span class="pre">f1.2xlarge</span></code> 인스턴스 생성후 인스턴스 내에서 아래 명령을 통해 커널 드라이버와 펌웨어를 설치할 수 있다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/furiosa-ai/furiosa-fpga-install.git
 $ cd furiosa-fpga-install
 $ sudo ./install_furiosa_fpga_aws_f1

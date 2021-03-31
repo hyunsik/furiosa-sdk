@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>지원되는 연산자 목록 &mdash; Furiosa SDK 문서 furiosa-docs documentation</title>
+  <title>Furiosa NPU 에서 가속되는 연산자 &mdash; Furiosa SDK 문서 furiosa-docs documentation</title>
   
 
   
@@ -89,18 +89,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/prerequisites.html">FuriosaAI SDK 설치 사전 준비</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/driver.html">NPU 커널 드라이버 및 펌웨어 설치</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/runtime.html">NPU Runtime 설치</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">Python SDK 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">FuriosaAI Python SDK 설치</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/apikey.html">API 키 설정</a></li>
 </ul>
 <p class="caption"><span class="caption-text">빠른 시작</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK 빠르게 시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">커맨드 라인 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">명령 줄 도구 빠르게 시작하기</a></li>
 </ul>
 <p class="caption"><span class="caption-text">고급 주제</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quantization.html">모델 양자화</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">지원되는 연산자 목록</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Furiosa NPU 에서 가속되는 연산자</a></li>
 </ul>
 
             
@@ -149,7 +149,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>지원되는 연산자 목록</li>
+      <li>Furiosa NPU 에서 가속되는 연산자</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -168,44 +168,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1>지원되는 연산자 목록<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
+  <div class="section" id="furiosa-npu">
+<h1>Furiosa NPU 에서 가속되는 연산자<a class="headerlink" href="#furiosa-npu" title="제목 주소">¶</a></h1>
+<p><a class="reference external" href="https://onnx.ai/">ONNX</a> 연산자 기준으로 아래 28 종의 연산자를 Furiosa NPU로 가속 할 수 있다.</p>
 <ul class="simple">
 <li><p>Add</p></li>
-<li><p>AveragePool2d</p></li>
-<li><p>Broadcast</p></li>
+<li><p>AveragePool</p></li>
 <li><p>Clip</p></li>
-<li><p>Concatenation</p></li>
-<li><p>Conv2d</p></li>
+<li><p>Concat</p></li>
+<li><p>Conv</p></li>
+<li><p>ConvTranspose</p></li>
 <li><p>DepthToSpace</p></li>
-<li><p>DepthwiseConv2d</p></li>
 <li><p>Exp</p></li>
 <li><p>Expand</p></li>
 <li><p>Flatten</p></li>
-<li><p>FullyConnected</p></li>
 <li><p>Gemm</p></li>
-<li><p>LpNorm</p></li>
-<li><p>Mask</p></li>
+<li><p>LpNormalization (when p = 2)</p></li>
 <li><p>MatMul</p></li>
-<li><p>MaxPool2d</p></li>
+<li><p>MaxPool</p></li>
 <li><p>Mean</p></li>
 <li><p>Mul</p></li>
-<li><p>Pad</p></li>
 <li><p>Pad</p></li>
 <li><p>ReduceL2</p></li>
 <li><p>ReduceSum</p></li>
 <li><p>Relu</p></li>
-<li><p>Requantize</p></li>
 <li><p>Reshape</p></li>
-<li><p>Resize</p></li>
 <li><p>Sigmoid</p></li>
 <li><p>Slice</p></li>
 <li><p>Softmax</p></li>
 <li><p>Softplus</p></li>
 <li><p>Split</p></li>
-<li><p>TableLookup</p></li>
 <li><p>Transpose</p></li>
-<li><p>TransposeConv</p></li>
 <li><p>Unsqueeze</p></li>
 </ul>
 </div>

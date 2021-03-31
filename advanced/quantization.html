@@ -39,8 +39,8 @@
     
     <link rel="index" title="색인" href="../genindex.html" />
     <link rel="search" title="검색" href="../search.html" />
-    <link rel="next" title="지원되는 연산자 목록" href="supported_operators.html" />
-    <link rel="prev" title="커맨드 라인 도구" href="../quickstart/cli.html" /> 
+    <link rel="next" title="Furiosa NPU 에서 가속되는 연산자" href="supported_operators.html" />
+    <link rel="prev" title="명령 줄 도구 빠르게 시작하기" href="../quickstart/cli.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,13 +90,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/prerequisites.html">FuriosaAI SDK 설치 사전 준비</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/driver.html">NPU 커널 드라이버 및 펌웨어 설치</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/runtime.html">NPU Runtime 설치</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">Python SDK 설치</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/python-sdk.html">FuriosaAI Python SDK 설치</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation/apikey.html">API 키 설정</a></li>
 </ul>
 <p class="caption"><span class="caption-text">빠른 시작</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/python-sdk.html">Python SDK 빠르게 시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">커맨드 라인 도구</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/cli.html">명령 줄 도구 빠르게 시작하기</a></li>
 </ul>
 <p class="caption"><span class="caption-text">고급 주제</span></p>
 <ul class="current">
@@ -104,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id2">동작 방식</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="supported_operators.html">지원되는 연산자 목록</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supported_operators.html">Furiosa NPU 에서 가속되는 연산자</a></li>
 </ul>
 
             
@@ -174,25 +174,26 @@
             
   <div class="section" id="id1">
 <h1>모델 양자화<a class="headerlink" href="#id1" title="제목 주소">¶</a></h1>
-<p>FuriosaAI NPU인 Warboy는 8비트 정수 모델을 지원합니다.
-그러나 Furiosa SDK는 기존 FP16, FP32 실수형 데이터타입 기반의 모델을 양자화(quantization)
-하여 8비트 정수형 데이터타입 모델로 변환하는 도구를 제공합니다.
-양자화는 모델의 처리 성능을 높이거나 하드웨어 가속을 위해 사용되는 보편적인 기술로,
-FuriosaAI SDK에서 제공하는 양자화 도구를 통해 더욱 다양한 모델을 NPU를 활용하여 가속할 수 있습니다.</p>
+<p>FuriosaAI NPU인 Warboy는 8bit 정수형 모델만을 지원한다.
+실수형 데이터 타입 기반의 모델을 지원하기 위해,
+Furiosa SDK는 FP16, FP32 실수형 데이터 타입 기반 모델을 양자화(quantization)하여
+8bit 정수형 데이터 타입 모델로 변환하는 도구를 제공한다.
+양자화란 모델의 처리 성능을 높이거나 하드웨어를 가속하기 위해 사용되는 보편적인 기술로,
+FuriosaAI SDK에서 제공하는 양자화 도구를 사용하면 NPU를 활용하여 더욱 다양한 모델을 가속할 수 있다.</p>
 <p>FuriosaAI SDK가 지원하는 양자화 방식은  <em>post-training 8-bit quantization</em> 기반이며
 <a class="reference external" href="https://www.tensorflow.org/lite/performance/quantization_spec">Tensorflow Lite 8-bit quantization specification</a>
-을 따릅니다.</p>
-<p>현재 Onnx 모델을 8비트 양자화 모델로 변환하는 API와 커맨드 라인 도구가 SDK를 통해 제공합니다.
-아래 링크에서 사용 방법을 참고하실 수 있습니다.</p>
+을 따른다.</p>
+<p>SDK가 제공하는 API와 명령 줄 도구를 사용하여 ONNX 모델을 8bit 양자화 모델로 변환할 수 있다.
+사용 방법은 아래 링크에서 확인할 수 있다:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/furiosa-ai/furiosa-sdk/tree/main/examples/furiosa-sdk-quantizer">Python SDK Quantization 예제</a></p></li>
 <li><p><a class="reference external" href="https://furiosa-ai.github.io/renegade-manual/references/python/quantizer/index.html">Python 레퍼런스 - furiosa.quantizer</a></p></li>
 </ul>
-<p>TensorFlow 모델은 추후 지원할 예정입니다.</p>
+<p>TensorFlow 모델은 추후 지원할 예정이다.</p>
 <div class="section" id="id2">
 <h2>동작 방식<a class="headerlink" href="#id2" title="제목 주소">¶</a></h2>
-<p>양자화 도구는 아래 그림에서 표현된 바와 같이 Onnx 모델을 입력으로 받아
-아래 3단계를 거쳐 양자화를 실행하고 양자화된 Onnx 모델을 출력합니다.</p>
+<p>양자화 도구는 아래 그림에서 표현된 바와 같이 ONNX 모델을 입력으로 받아
+아래 3단계를 거쳐 양자화를 실행하고 양자화된 ONNX 모델을 출력한다.</p>
 <ol class="arabic simple">
 <li><p>Graph optimization</p></li>
 <li><p>Calibration</p></li>
@@ -208,8 +209,8 @@ FuriosaAI SDK에서 제공하는 양자화 도구를 통해 더욱 다양한 모
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="supported_operators.html" class="btn btn-neutral float-right" title="지원되는 연산자 목록" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../quickstart/cli.html" class="btn btn-neutral float-left" title="커맨드 라인 도구" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="supported_operators.html" class="btn btn-neutral float-right" title="Furiosa NPU 에서 가속되는 연산자" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../quickstart/cli.html" class="btn btn-neutral float-left" title="명령 줄 도구 빠르게 시작하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
