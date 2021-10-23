@@ -7,7 +7,7 @@ build:
 	python -m build
 
 lint:
-	pylint furiosa/registry
+	isort . && black .
 
 upload_test:
 	twine upload --repository testpypi dist/*
